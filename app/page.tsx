@@ -1,10 +1,12 @@
 import { HeroBanner } from "@/components/home/HeroBanner";
+import Library from "@/components/home/library/Library";
 
 function Home() {
   return (
-    <main className="page-container py-8">
+    <div className="page-container py-8">
       <HeroBanner />
-    </main>
+      <Library />
+    </div>
   );
 }
 
