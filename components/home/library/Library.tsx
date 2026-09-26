@@ -1,5 +1,6 @@
 import { Suspense } from "react";
 import WorkoutList from "./WorkoutList";
+import WorkoutListSkeleton from "./WorkoutListSkeleton";
 
 async function Library() {
   return (
@@ -17,7 +18,7 @@ async function Library() {
         </p>
       </div>
 
-      <Suspense fallback={<p>Loading workouts...</p>}>
+      <Suspense fallback={<WorkoutListSkeleton />}>
         <WorkoutList />
       </Suspense>
     </section>
