@@ -1,5 +1,6 @@
 import { getWorkoutById } from "@/lib/api";
 import WorkoutDetails from "./_components/WorkoutDetails";
+import { notFound } from "next/navigation";
 
 type WorkoutDetailsPageProps = {
   params: Promise<{
@@ -24,6 +25,10 @@ async function WorkoutDetailsPage({ params }: WorkoutDetailsPageProps) {
         </p>
       </div>
     );
+  }
+
+  if (!workout) {
+    notFound();
   }
 
   return (
