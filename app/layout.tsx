@@ -5,6 +5,7 @@ import { Inter, Oswald } from "next/font/google";
 import { Navbar } from "@/components/shared/navbar/Navbar";
 import { Footer } from "@/components/shared/Footer";
 import { FitLogProvider } from "@/contexts/FitLogContext";
+import { ToastContainer } from "react-toastify";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -33,6 +34,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           <main className="flex-1">{children}</main>
           <Footer />
         </FitLogProvider>
+        <ToastContainer position="bottom-right" autoClose={3000} />
       </body>
     </html>
   );

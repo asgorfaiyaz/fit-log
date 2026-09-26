@@ -1,5 +1,5 @@
-import WorkoutDetails from "@/components/WorkoutDetails";
 import { getWorkoutById } from "@/lib/api";
+import WorkoutDetails from "./_components/WorkoutDetails";
 
 type WorkoutDetailsPageProps = {
   params: Promise<{

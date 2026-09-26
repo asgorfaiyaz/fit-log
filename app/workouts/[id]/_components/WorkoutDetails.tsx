@@ -1,8 +1,7 @@
 import Image from "next/image";
-import { Bookmark, CalendarPlus } from "lucide-react";
-import { Button } from "@/components/ui/button";
 import type { Workout } from "@/types";
-import { Badge } from "./ui/badge";
+import WorkoutActions from "./WorkoutActions";
+import { Badge } from "@/components/ui/badge";
 
 type WorkoutDetailsProps = {
   workout: Workout;
@@ -116,17 +115,7 @@ function WorkoutDetails({ workout }: WorkoutDetailsProps) {
           </ol>
         </section>
 
-        <div className="mt-8 flex flex-wrap gap-3">
-          <Button className="bg-primary font-bold text-primary-foreground hover:bg-primary/90">
-            <CalendarPlus />
-            Add to today&apos;s plan
-          </Button>
-
-          <Button variant="outline" className="border-border bg-transparent">
-            <Bookmark />
-            Save for later
-          </Button>
-        </div>
+        <WorkoutActions workout={workout} />
       </div>
     </article>
   );
