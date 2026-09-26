@@ -16,19 +16,21 @@ export default function WorkoutActions({ workout }: { workout: Workout }) {
   } = useContext(FitLogContext)!;
 
   function handleAddToPlan() {
-    if (plannedWorkouts.some((workout) => workout.id === workout.id)) {
+    if (plannedWorkouts.some((w) => w.id === workout.id)) {
       toast.error("This workout is already in your plan.");
       return;
     }
+    toast.success("This workout is added in your plan.");
 
     setPlannedWorkouts((prev) => [...prev, workout]);
   }
 
   function handleSave() {
-    if (savedWorkouts.some((workout) => workout.id === workout.id)) {
+    if (savedWorkouts.some((w) => w.id === workout.id)) {
       toast.error("This workout is already saved.");
       return;
     }
+    toast.success("This workout is added in your saved.");
 
     setSavedWorkouts((prev) => [...prev, workout]);
   }
