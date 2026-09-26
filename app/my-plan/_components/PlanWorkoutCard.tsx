@@ -46,6 +46,11 @@ export default function PlanWorkoutCard({ workout }: PlanWorkoutCardProps) {
 
     toast.success("Workout added to your plan.");
   }
+  function handleMarkAsDone() {
+    setPlannedWorkouts((prev) => prev.filter((item) => item.id !== workout.id));
+
+    toast.success(`${workout.name} marked as done.`);
+  }
   return (
     <article className="flex flex-col gap-4 rounded-xl border border-border bg-card p-4 sm:flex-row sm:items-center">
       <div className="relative h-48 w-full shrink-0 overflow-hidden rounded-lg sm:h-20 sm:w-36">
@@ -99,6 +104,7 @@ export default function PlanWorkoutCard({ workout }: PlanWorkoutCardProps) {
         {activeTab === "planned" && (
           <Button
             size="sm"
+            onClick={handleMarkAsDone}
             className="bg-primary px-4 font-bold text-primary-foreground hover:bg-primary/90"
           >
             Mark as Done
