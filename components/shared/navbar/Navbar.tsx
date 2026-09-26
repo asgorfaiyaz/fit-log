@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Dumbbell } from "lucide-react";
 import NavLink from "./NavLink";
 import { MobileNav } from "./MobileNav";
+import { NavCounters } from "./NavCounters";
 
 const navLinks = [
   {
@@ -14,12 +15,7 @@ const navLinks = [
   },
 ];
 
-type NavbarProps = {
-  planCount?: number;
-  savedCount?: number;
-};
-
-export function Navbar({ planCount = 0, savedCount = 0 }: NavbarProps) {
+export function Navbar() {
   return (
     <header className="sticky top-0 z-50 border-b border-white/5 bg-background/80 backdrop-blur-xl supports-backdrop-filter:bg-background/60">
       <nav className="flex h-14 items-center page-container">
@@ -42,42 +38,10 @@ export function Navbar({ planCount = 0, savedCount = 0 }: NavbarProps) {
         </div>
 
         <div className="ml-auto flex items-center gap-4">
-          <PlanCounter count={planCount} />
-          <SavedCounter count={savedCount} />
-
+          <NavCounters />
           <MobileNav navLinks={navLinks} />
         </div>
       </nav>
     </header>
-  );
-}
-
-function PlanCounter({ count }: { count: number }) {
-  return (
-    <Link
-      href="/my-plan"
-      className="flex items-center gap-2 text-sm lg:text-base  text-muted-foreground transition-colors hover:text-foreground"
-    >
-      <span>Plan</span>
-
-      <span className="flex size-5 items-center justify-center rounded-full bg-primary text-[10px] font-bold text-primary-foreground">
-        {count}
-      </span>
-    </Link>
-  );
-}
-
-function SavedCounter({ count }: { count: number }) {
-  return (
-    <Link
-      href="/my-plan"
-      className="flex items-center gap-2 text-sm lg:text-base  text-muted-foreground transition-colors hover:text-foreground"
-    >
-      <span>Saved</span>
-
-      <span className="flex size-5 items-center justify-center rounded-full border border-border text-[10px] font-medium text-muted-foreground">
-        {count}
-      </span>
-    </Link>
   );
 }
