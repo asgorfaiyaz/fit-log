@@ -4,6 +4,7 @@ import "./globals.css";
 import { Inter, Oswald } from "next/font/google";
 import { Navbar } from "@/components/shared/navbar/Navbar";
 import { Footer } from "@/components/shared/Footer";
+import { FitLogProvider } from "@/contexts/FitLogContext";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -27,9 +28,11 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${inter.variable} ${oswald.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
-        <Navbar />
-        <main className="flex-1">{children}</main>
-        <Footer />
+        <FitLogProvider>
+          <Navbar />
+          <main className="flex-1">{children}</main>
+          <Footer />
+        </FitLogProvider>
       </body>
     </html>
   );
